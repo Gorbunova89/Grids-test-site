@@ -1,4 +1,18 @@
-.grid_body {
+ul {
+    list-style: none;
+}
+
+/* ========== */
+.wrapper {
+    min-height: 100%;
     display: grid;
-    
+    grid-template: minmax(100px, auto) 1fr minmax(70px, auto) /1fr;
+}
+
+.header {
+    background-color: rgb(3, 88, 40);
+}
+
+.footer {
+    background-color: rgb(3, 88, 40);
 }
