@@ -1,3 +1,7 @@
+body {
+    background: rgb(15, 22, 22);
+}
+
 ul {
     list-style: none;
 }
@@ -20,6 +24,8 @@ ul {
     display: grid;
     /*объявлем ряды  на всю высоту, задаем ширину контейнера*/
     grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    /* располагаем пункты меню посередине */
+    align-items: center;
 }
 
 .header_logo {
@@ -41,7 +47,7 @@ ul {
     grid-auto-flow: column;
     /* содержимое грид элементов выстроилось по левому краю */
     justify-items: end;
-    grid-column: ;
+    
 }
 
 .header_link {
@@ -52,6 +58,57 @@ ul {
 
 .header_list li {
     
+}
+
+/* основной контент */
+.main {
+    grid-area: main;
+    padding: 30px 15px;
+    display: grid;
+    /* скопировали из шапки */
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
+.sidebar {
+    grid-column: 2 / 3;
+    background-color: lightseagreen;
+    padding: 30px 15px;
+}
+
+.sidebar_list li {
+    margin: 0px 0px 15px 0px;
+}
+
+.content {
+    grid-column: 3 / 4;
+}
+
+.gallery_items {
+    display: grid;
+    gap: 10px;
+    /* выстраиваем изображения в сетку с минимимальной шириной 250px*/
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* для картинок */
+.gallery_item {
+    position: relative;
+    padding: 0px 0px 85% 0px;
+}
+
+.gallery_item img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* span сколько ячеек от себя надо забрать объекту */
+.gallery_item_big {
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
 .footer {
