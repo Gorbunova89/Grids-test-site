@@ -59,23 +59,72 @@ ul {
 }
 
 .header_list li {
-    
+    margin: 0px 0px 0px 30px;
+}
+
+.header_burger {
+
+}
+   
+
+@media (min-width: 992px) {
+    .header_list {
+        display: none;
+    }
+
+    .header_menu {
+        display: grid;
+        justify-items: end;
+    }
+
+    .header_burger {
+        width: 30px;
+        display: grid;
+        align-items: center;
+        grid-template: repeat(3,8px) /1fr;
+    }
+
+    .header_burger::before {
+        content: "";
+        height: 2px;
+        width: 30px;
+        background-color: #fff;
+    }
+
+    .header_burger::after {
+        content: "";
+        height: 2px;
+        width: 30px;
+        background-color: #fff;
+    }
+
 }
 
 /* основной контент */
 .main {
-    grid-area: main;
+    /* grid-area: main; */
     padding: 30px 15px;
-    display: grid;
+    /* display: grid; */
     /* скопировали из шапки */
-    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    /* grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; */
 }
 
+/* сетка появляется только н аэкранах меньше 992px Только у блока main */
+@media (min-width: 992px) {
+    .main {
+        grid-area: main;
+        display: grid;
+        grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    }
+}
+    
+
 .sidebar {
-    grid-column: 2 / 3;
+    /* перенесли в медиа запрос */
+    /* grid-column: 2 / 3; */
     background-color: rgb(4, 32, 31);;
     padding: 30px 15px;
-    margin-right: 10px;
+    margin: 0px 0px 30px 0px;
 }
 
 .sidebar_list li {
@@ -111,13 +160,21 @@ ul {
 
 /* span сколько ячеек от себя надо забрать объекту */
 .gallery_item_big {
-    grid-column: span 2;
-    grid-row: span 2;
+    /* grid-column: span 2; */
+    /* grid-row: span 2; */
 }
 
+@media (min-width: 767px) {
+    .gallery_item_big {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+/* перенесли в медиа запрос */
 .content {
-    grid-column: 3 / 4;
-    padding: 0px 0px 0px 30px;
+    /* grid-column: 3 / 4; */
+    /* padding: 0px 0px 0px 30px; */
 }
 
 .content_title {
@@ -128,11 +185,30 @@ ul {
     margin: 0px 0px 30px 0px;
 }
 
+@media (min-width: 992px) {
+    .main {
+        grid-area: main;
+        display: grid;
+        grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    }
+
+    .sidebar {
+        grid-column: 2 / 3;
+        margin: 0;
+    }
+
+    .content {
+        grid-column: 3 / 4;
+        padding: 0px 0px 0px 30px;
+    }
+}
+
 .products_items {
     display: grid;
     column-gap: 30px;
     row-gap: 50px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
 }
 
 /* то что относится к картинкам в блоке products_image */
@@ -149,7 +225,7 @@ ul {
 .products_image {
     position: relative;
     padding: 0px 0px 90% 0px;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 .products_item {
@@ -161,23 +237,54 @@ ul {
 
 .products_name {
     font-size: 20px;
-    color: #fff;
-    line-height: 30px;
+    font-family: 700;
+    color:rgb(4, 32, 31);
+    line-height: 40px;
     margin: 0px 0px 20px 0px;
 }
 
+/* кнопка */
 .products_button {
     color: #fff;
     text-transform: uppercase;
+    font-size: 0.8rem;
     letter-spacing: 2px;
     text-decoration: none;
     line-height: 40px;
     /* растягиваем на всю ширину кнопку */
     justify-self: start;
-    background-color: blueviolet;
+    background: rgb(2, 129, 129);
+    background-color: ;
     padding: 0px 20px;
 }
 
 .footer {
     background-color: rgb(4, 32, 31);
+    display: grid;
+    grid-template:  1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    grid-area: footer;
+    padding: 15px;
+    align-items: center;
+    color: #fff;
 }
+
+.footer_copy {
+    grid-column: 2 / 3;
+}
+
+.footer_text {
+    grid-column: 3 / 4;
+    text-align: right;
+}
+
+/* @media (min-width: 550px) {
+    .footer_copy {
+        grid-column: 2 / 3;
+    }
+    
+    .footer_text {
+        grid-column: 3 / 4;
+        text-align: right;
+    }
+} */
+
