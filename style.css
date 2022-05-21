@@ -6,11 +6,52 @@ ul {
 .wrapper {
     min-height: 100%;
     display: grid;
-    grid-template: minmax(100px, auto) 1fr minmax(70px, auto) /1fr;
+    grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
 }
 
 .header {
     background-color: rgb(3, 88, 40);
+    grid-area: header;
+    padding: 15px;
+    display: grid;
+    /*объявлем ряды  на всю высоту, задаем ширину контейнера*/
+    grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
+.header_logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #fff;
+    /* начинаем со 2й колонки и заканчиваем на 3й */
+    grid-column: 2 / 3;
+}
+
+.header_menu {
+    grid-column: 3 / 4
+}
+
+.header_list {
+    display: grid;
+    /* сделалаи колонки для меню */
+    grid-auto-flow: column;
+    /* содержимое грид элементов выстроилось по левому краю */
+    justify-items: end;
+    grid-column: ;
+}
+
+.header_link {
+    color: #fff;
+    font-size: 18px;
+
+}
+
+.header_list li {
+    
 }
 
 .footer {
